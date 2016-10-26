@@ -18,12 +18,14 @@ class AddressStorage
         $sql   = '
             SELECT *
             FROM address_objects
-            WHERE level = ?q
-                AND lower(full_title) = lower(?q)
+            WHERE
+                level = ?q AND 
+                lower(full_title) = lower(?q)
             LIMIT 1'
         ;
 
-        return $this->db->execute($sql, [$level, $address])->fetchOneOrFalse();
+        $result = $this->db->execute($sql, [$level, $address])->fetchOneOrFalse();
+        return $result;
     }
 
     public function findHouse($address)

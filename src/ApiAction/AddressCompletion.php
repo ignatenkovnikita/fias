@@ -35,7 +35,7 @@ class AddressCompletion implements ApiActionInterface
         $storage      = new AddressStorage($this->db);
         $addressParts = static::splitAddress($this->address);
 
-        $address        = $this->findAddressesWithoutParentId($addressParts['pattern']);//$storage->findAddress($addressParts['address']);
+        $address        = $storage->findAddress($addressParts['address']);
 
         $this->parentId = $address ? $address['address_id'] : null;
         $houseCount     = $address ? $address['house_count'] : null;
@@ -97,7 +97,6 @@ class AddressCompletion implements ApiActionInterface
                 SELECT id, address_id, full_title title, address_level, next_address_level
                 FROM address_objects ao
                 WHERE ?p:where:
-                    AND (parent_id IS NULL)
                 LIMIT ?e:limit:
             )
             UNION
@@ -105,8 +104,7 @@ class AddressCompletion implements ApiActionInterface
                 SELECT ao.id, ao.address_id, ao.full_title title, ao.address_level, ao.next_address_level
                 FROM address_objects ao
                 INNER JOIN address_objects AS aop
-                    ON aop.parent_id IS NULL
-                        AND aop.address_id = ao.parent_id
+                    ON aop.address_id = ao.parent_id
                 WHERE ?p:where:
                 LIMIT ?e:limit:
             )
@@ -120,9 +118,6 @@ class AddressCompletion implements ApiActionInterface
             'where' => $where,
             'limit' => $this->limit
         ];
-
-        var_dump($this->db->execute($sql, $values)->fetchAll());
-
 
         return $this->db->execute($sql, $values)->fetchAll();
     }
@@ -188,10 +183,13 @@ class AddressCompletion implements ApiActionInterface
     {
         $tmp = explode(',', $address);
 
-        return [
-            'pattern' => static::cleanAddressPart(array_pop($tmp)),
-            'address' => implode(',', $tmp),
-        ];
+        $bla =
+            [
+                'pattern' => static::cleanAddressPart(array_pop($tmp)),
+                'address' => implode(',', $tmp),
+            ];
+
+        return $bla;
     }
 
     private static function cleanAddressPart($rawAddress)
