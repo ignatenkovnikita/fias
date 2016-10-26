@@ -1,0 +1,8 @@
+/.idea/
+/logs
+/vendor
+/config.ini
+/tests/file_directory/*
+/cache
+/phpunit.xml
+/import.php
