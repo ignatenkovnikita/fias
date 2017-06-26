@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb5c22e0d87663ae6045a06d10ac7624c
+class ComposerStaticInit85b1f18605d7627d8cb9b133559de508
 {
     public static $files = array (
         'ae4a4d52d1f5bda293a01bc53de12774' => __DIR__ . '/..' . '/miknatr/bravicility/lib/functions.php',
@@ -12,6 +12,14 @@ class ComposerStaticInitb5c22e0d87663ae6045a06d10ac7624c
     );
 
     public static $prefixLengthsPsr4 = array (
+        'p' => 
+        array (
+            'phpDocumentor\\Reflection\\' => 25,
+        ),
+        'W' => 
+        array (
+            'Webmozart\\Assert\\' => 17,
+        ),
         'S' => 
         array (
             'Symfony\\Component\\Yaml\\' => 23,
@@ -28,6 +36,16 @@ class ComposerStaticInitb5c22e0d87663ae6045a06d10ac7624c
     );
 
     public static $prefixDirsPsr4 = array (
+        'phpDocumentor\\Reflection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+        ),
+        'Webmozart\\Assert\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/webmozart/assert/src',
+        ),
         'Symfony\\Component\\Yaml\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
@@ -47,13 +65,6 @@ class ComposerStaticInitb5c22e0d87663ae6045a06d10ac7624c
     );
 
     public static $prefixesPsr0 = array (
-        'p' => 
-        array (
-            'phpDocumentor' => 
-            array (
-                0 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-            ),
-        ),
         'T' => 
         array (
             'Twig_' => 
@@ -189,7 +200,7 @@ class ComposerStaticInitb5c22e0d87663ae6045a06d10ac7624c
         'PHPUnit_Framework_Constraint_TraversableContains' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Constraint/TraversableContains.php',
         'PHPUnit_Framework_Constraint_TraversableContainsOnly' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Constraint/TraversableContainsOnly.php',
         'PHPUnit_Framework_Constraint_Xor' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Constraint/Xor.php',
-        'PHPUnit_Framework_CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/PHPUnit_Framework_CoveredCodeNotExecutedException.php',
+        'PHPUnit_Framework_CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/CoveredCodeNotExecutedException.php',
         'PHPUnit_Framework_Error' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Error.php',
         'PHPUnit_Framework_Error_Deprecated' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Error/Deprecated.php',
         'PHPUnit_Framework_Error_Notice' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Error/Notice.php',
@@ -469,6 +480,7 @@ class ComposerStaticInitb5c22e0d87663ae6045a06d10ac7624c
         'PHP_Token_NEW' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_NS_C' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_NS_SEPARATOR' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'PHP_Token_NULLSAFE_OBJECT_OPERATOR' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_NUM_STRING' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_OBJECT_CAST' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_OBJECT_OPERATOR' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
@@ -506,6 +518,7 @@ class ComposerStaticInitb5c22e0d87663ae6045a06d10ac7624c
         'PHP_Token_STRING' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_STRING_CAST' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_STRING_VARNAME' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
+        'PHP_Token_SUPER' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_SWITCH' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token.php',
         'PHP_Token_Stream' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token/Stream.php',
         'PHP_Token_Stream_CachingFactory' => __DIR__ . '/..' . '/phpunit/php-token-stream/src/Token/Stream/CachingFactory.php',
@@ -582,11 +595,11 @@ class ComposerStaticInitb5c22e0d87663ae6045a06d10ac7624c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb5c22e0d87663ae6045a06d10ac7624c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb5c22e0d87663ae6045a06d10ac7624c::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitb5c22e0d87663ae6045a06d10ac7624c::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInitb5c22e0d87663ae6045a06d10ac7624c::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInitb5c22e0d87663ae6045a06d10ac7624c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit85b1f18605d7627d8cb9b133559de508::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit85b1f18605d7627d8cb9b133559de508::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit85b1f18605d7627d8cb9b133559de508::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit85b1f18605d7627d8cb9b133559de508::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInit85b1f18605d7627d8cb9b133559de508::$classMap;
 
         }, null, ClassLoader::class);
     }
